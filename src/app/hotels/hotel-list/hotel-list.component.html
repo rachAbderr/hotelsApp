@@ -41,8 +41,8 @@
           
           <div class="d-flex justify-content-between align-items-baseline">
             <app-star-rating [rating] = "hotel.rating" (starRatingClick)="receiveRatingClicked($event)"></app-star-rating>
-            <span class="material-icons bg-primary rounded-circle p-2 text-white btn" [routerLink]="['/hotels', hotel.hotelId,'edit']">edit</span> 
-            <span class="material-icons bg-info rounded-circle p-2 text-white btn" [routerLink]="['/hotels', hotel.hotelId]">keyboard_arrow_right</span>    
+            <span class="material-icons bg-primary rounded-circle p-2 text-white btn" [routerLink]="['/hotels', hotel.id,'edit']">edit</span> 
+            <span class="material-icons bg-info rounded-circle p-2 text-white btn" [routerLink]="['/hotels', hotel.id]">keyboard_arrow_right</span>    
           </div>
           
           <span class="badge rounded-pill bg-info" *ngIf="showBadge">Nouveau</span>

@@ -9,7 +9,7 @@ import {catchError, tap, map} from 'rxjs/operators'
 })
 export class HotelListService {
 
-  private readonly HOTEL_API_URL = 'api/hotels.json';
+  private readonly HOTEL_API_URL = 'api/hotels';
 
   constructor(private http : HttpClient) { }
  
@@ -25,12 +25,18 @@ export class HotelListService {
         return of(this.getDefaultHotel());
       }
       return this.getHotels().pipe(
-        map(hotels=>hotels.find(hotel => hotel.hotelId == id))  
+        map(hotels=>hotels.find(hotel => hotel.id == id))  
       );
   }  
+
+  public updateHotel(hotel: IHotel): Observable<IHotel>{
+    const url = `${this.HOTEL_API_URL}/${hotel.id}`;
+
+    return this.http.put<IHotel>(url,hotel).pipe(catchError(this.handleError));
+  }
   private getDefaultHotel():IHotel{
     return {
-    hotelId: 0,
+    id: 0,
     hotelName: null,
     description: null ,
     price: null ,
