@@ -56,7 +56,7 @@ export class HotelEditComponent implements OnInit {
     });
   }
   saveHotel() {
-    if (this.hotelForm.valid) {    
+    if (this.hotelForm.valid) {  
       if (this.hotelForm.dirty) {
         const hotel: IHotel = {
           ...this.hotel,
