@@ -43,6 +43,11 @@ export class HotelListService {
       .pipe(catchError(this.handleError));
   }
 
+  public deleteHotel(id : number):Observable<{}>{
+    const url = `${this.HOTEL_API_URL}/${id}`;
+    return this.http.delete<IHotel>(url).pipe(catchError(this.handleError));
+  }
+
   private getDefaultHotel(): IHotel {
     return {
       id: 0,
@@ -53,6 +58,8 @@ export class HotelListService {
       rating: null,
     };
   }
+
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
