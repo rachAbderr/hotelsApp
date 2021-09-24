@@ -36,7 +36,7 @@ export class HotelListService {
 
   public creatHotel(hotel: IHotel): Observable<IHotel> {
 
-    hotel = {...hotel, imageUrl: "assets/img/hotel-room.jpg"
+    hotel = {...hotel, imageUrl: "assets/img/hotel-room.jpg", id : null
       }
     return this.http
       .post<IHotel>(this.HOTEL_API_URL, hotel)
